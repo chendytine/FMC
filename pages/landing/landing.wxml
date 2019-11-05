@@ -1,0 +1,9 @@
+<!--pages/landing/landing.wxml-->
+<view class="banner" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.lewagon.com/api/v1/cities/shenzhen/cover?width=1200);">
+
+<view class="h1">Hello world</view>
+<view class="p">That's amazing</view>
+<navigator class="btn btn-flat" url="/pages/stories/stories">
+Go to stories
+</navigator>
+</view>
