@@ -19,13 +19,27 @@ Page({
   formSubmit(event){
     console.log(event)
     let newstory = event.detail.value
-    app.globalData.stories.unshift(newstory)
-    wx.navigateBack()
-    wx.showToast({
-      title:'Success',
-      icon: 'sucess'
+    // app.globalData.stories.unshift(newstory)
+    
+    wx.request({
+      url:'https://fml.shanghaiwogeng.com/api/v1/stories',
+      data: newstory,
+      method:'POST',
+      success: this.submitSuccess
     })
   },
+    
+    submitSuccess(res){
+      console.log(res)
+      if (res.statusCode === 201){
+        wx.navigateBack()
+        wx.showToast({
+          title: 'Success',
+          icon: 'sucess'
+        })
+      }
+    },
+
 
   /**
    * Lifecycle function--Called when page is initially rendered

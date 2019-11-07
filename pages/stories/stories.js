@@ -27,7 +27,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-  
+    
+  },
+    
+  getResult(res){
+    console.log(res)
+    this.setData({
+      stories:res.data
+    })
   },
 
   /**
@@ -41,10 +48,16 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    this.setData({
-      stories: app.globalData.stories,
-      title: wx.getStorageSync('story-title') || 'Stories'
-    });
+    // this.setData({
+    //   stories: app.globalData.stories,
+    //   title: wx.getStorageSync('story-title') || 'Stories'
+    // });
+    const request = {
+      url: 'https://fml.shanghaiwogeng.com/api/v1/stories',
+      method: 'GET',
+      success: this.getResult
+    }
+    wx.request(request)
   },
 
   /**
