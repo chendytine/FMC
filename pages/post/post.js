@@ -22,15 +22,18 @@ Page({
     // app.globalData.stories.unshift(newstory)
     
     wx.request({
-      url:'https://fml.shanghaiwogeng.com/api/v1/stories',
+      url:'https://cloud.minapp.com/oserve/v1/table/84988/record/',
       data: newstory,
       method:'POST',
+      header: {
+        Authorization: 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e'
+      },
       success: this.submitSuccess
     })
   },
     
     submitSuccess(res){
-      console.log(res)
+      console.log('res for post', res)
       if (res.statusCode === 201){
         wx.navigateBack()
         wx.showToast({

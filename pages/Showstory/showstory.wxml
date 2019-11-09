@@ -1,0 +1,23 @@
+<!--pages/Showstory/showstory.wxml-->
+<view class="h2">{{story.name}}</view>
+<view class="p">{{story.content}}</view>
+
+<view wx:for="{{comments}}" wx:for-item="item">
+  <view class="p" wx:for-index="index">{{index+1}}.{{item.name}}</view>
+  <view class="p">{{item.content}}
+    <button class="btn btn-flat" data-id="{{item.id}}" bindtap="deleteComment" >Delete</button>
+    <button class="btn btn-flat" data-votes="{{item.votes}}" bindtap="submitVote" >Votes:{{item.votes}}</button>
+    
+    <!-- <image src="/images/thumbs-up-regular.svg" mode="aspectFit" class="icon" data-votes="{{item.votes}}" bindtap="submitVote"></image>{{item.votes}}</view> -->
+
+  </view>
+</view>
+
+<form bindsubmit="submitComment" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">Your comment</view>
+    <textarea name="content" placeholder="please write your comment here" ></textarea>
+  </view>
+
+  <button class="btn btn-flat" form-type="submit">Add Comment</button>
+</form>

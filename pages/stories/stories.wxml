@@ -5,12 +5,12 @@
     <navigator class="btn btn-flat" url="/pages/post/post">Write a post</navigator>
 </view>
 
-<view class="card-product" wx:for="{{stories}}" wx:for-item="item">
+<view class="card-product" data-id="{{item._id}}" bindtap="goToStory" wx:for="{{stories}}" wx:for-item="item">
   <view class="card-product-infos">
     <view class="h2" wx:for-index="index" >{{item.name}}
 <!-- 这句可以加到class里面：wx:if="{{title === 'Love stories'}}" -->
 </view>
-    <view class="p">{{index+1}}. {{item.text}}</view>
+    <view class="p">{{index+1}}. {{item.content}}</view>
   </view>
 </view> 
 

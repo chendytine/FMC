@@ -33,7 +33,13 @@ Page({
   getResult(res){
     console.log(res)
     this.setData({
-      stories:res.data
+      stories: res.data.objects
+    })
+  },
+
+  goToStory(event) {
+    wx.navigateTo({
+      url: `/pages/Showstory/showstory?sid=${event.currentTarget.dataset.id}`
     })
   },
 
@@ -53,11 +59,15 @@ Page({
     //   title: wx.getStorageSync('story-title') || 'Stories'
     // });
     const request = {
-      url: 'https://fml.shanghaiwogeng.com/api/v1/stories',
+      url: 'https://cloud.minapp.com/oserve/v1/table/84988/record',
       method: 'GET',
+      header: {
+        Authorization: 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e'
+      },
       success: this.getResult
     }
     wx.request(request)
+  
   },
 
   /**

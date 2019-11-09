@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/landing/landing",
     "pages/stories/stories",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/Showstory/showstory"
   ],
   "window": {
     "backgroundTextStyle": "light",
